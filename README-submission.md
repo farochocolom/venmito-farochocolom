@@ -27,7 +27,8 @@ Used imports such as pandas, yaml, json, and xml.etree.ElementTree to consume an
 4. Now we can match transactions in the `transactions.xml` to user emails given their phone number and generate a few data points from this. These could be how many times the person has bought an item and the average amount of each item based on all the transactions.
 
 ### Data Analysis:
-No data analysis was reached, but 
+I was not able to get to analyze the data since I did not finish with data matching and conforming
+
 ### Data Output:
 I was only able to get the data organized for the people files, there is no useful data output outside of that
 
