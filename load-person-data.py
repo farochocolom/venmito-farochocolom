@@ -1,28 +1,18 @@
 import pandas as pd
-import yaml, json, csv
+import yaml, json
 import xml.etree.ElementTree as ET
 
-csv_path='data/promotions.csv'
-df = pd.read_csv(csv_path)
-
+# Parse the people.yml file into a dataFrame
 with open('data/people.yml', 'r') as df_json:
     people_data = yaml.safe_load(df_json)
     # people_data_df = pd.DataFrame.from_dict(people_data)
     df_yml = pd.json_normalize(people_data)
 
+# Parse the people.json file into a dataFrame
 with open('data/people.json', 'r') as df_json:
     people_data_json = json.load(df_json)
     # people_data_json_df = pd.DataFrame.from_dict(people_data_json)
     people_data_json_df = pd.json_normalize(people_data_json)
-
-# Passing the path of the
-# xml document to enable the
-# parsing process
-tree = ET.parse('data/transactions.xml')
-
-# getting the parent tag of
-# the xml document
-root = tree.getroot()
 
 # Modify the json dataframe keys to match the yml dataframe keys
 df_json = people_data_json_df
@@ -47,3 +37,7 @@ if 'id' in df_json.columns and 'id' in df_yml.columns:
 
     # Save the updated CSV
     df_updated.to_csv("data/merged_people.csv", index=False)
+
+
+# Parsing the promotions data into a dataFrame
+promotions_data = pd.read_csv('data/promotions.csv')

@@ -1,8 +1,16 @@
+## Personal Info
+Name: Fernando J. Arocho Colom
+Email: f.arochocolom@gmail.com
+
+## Approach
+My approach was mostly about learning the ropes. I wasn't familiar with data engineering before starting with this project so I had to learn about the different tools available for managing files such as pandas, which is the one I chose to go with.
+I got familiar with dataFrames to where I managed to parse and combine the data for the `people` files
+
 ### Data Ingestion:
-Your solution should be able to read and load data from all the provided files. Take into account that these files are in different formats (JSON, YAML, CSV, XML).
+Used imports such as pandas, yaml, json, and xml.etree.ElementTree to consume and transform the data.
 
 ### Data Matching and Conforming:
-Since the data in people.yml is simpler than the data in people.json, the json file should be split into a data table like a CSV and the converted into a YAML by merging the location object into one value, splitting the devices array into separate values, and "merging" first_name and last_name into a single value also to match the structure of 
+1. Since the data in people.yml is simpler than the data in people.json, the json file should be turned into a dataFrame to update the keys such as merging the location object into one value, splitting the devices array into separate values, and "merging" first_name and last_name into a single value to match the keys inside the yml file: 
 ``` YAML
   Android: 1
   Desktop: 0
@@ -14,20 +22,16 @@ Since the data in people.yml is simpler than the data in people.json, the json f
   phone: 533-849-3913
 ```
 
+2. After the data is "cleaned", I would join the data from the yaml dataFrame into the json file dataFrame to add the rows that are in the yaml file but not the json file. 
+3. With all the people accounted for on a single file I can now complete the missing data in the promotions csv by looking for the email by their unique phone number or viceversa.
+4. Now we can match transactions in the `transactions.xml` to user emails given their phone number and generate a few data points from this. These could be how many times the person has bought an item and the average amount of each item based on all the transactions.
+
 ### Data Analysis:
-Your solution should be able to process the conformed data to derive insights about our clients and transactions. This would involve implementing data aggregations, calculating relevant metrics, and identifying patterns. These insights will be invaluable in helping us understand our clientele and transaction trends better. Examples of things, but is not restricted to, we want to be able to see are:
-
-Which clients have what type of promotion?
-Give suggestions on how to turn "No" responses from clients in the promotions file.
-Insights on stores, like:
-What item is the best seller?
-What store has had the most profit?
-Etc.
-How can we use the data we got from the transfer file?
-These are only suggestions. Please don't limit yourself to only these examples and explore in your analysis any other suggestions could be beneficial for Venmito.
-
+No data analysis was reached, but 
 ### Data Output:
-The final output of your solution should enable us to consume the reorganized and analyzed data in a meaningful way. This could be, but is not restricted to, a command line interface (CLI), a database with structured schemas, a GUI featuring interactive visualizations, a Jupyter Notebook, or a RESTful API. We invite you to leverage other innovative methods that you believe would be beneficial for a company like Venmito. Please provide at least 2 data consumption methods, 1 for the non-technical team and 1 for the technical team.
+I was only able to get the data organized for the people files, there is no useful data output outside of that
 
-### Code:
-The code for your solution should be well-structured and comprehensible, with comments included where necessary. Remember, the quality and readability of the code will be a significant factor in the evaluation of the final deliverable.
+## How to run the code
+1. Clone the repo to your machine
+2. open your preferred IDE for python
+3. Run the project, you should see the merged_people.csv show up on the project files or get updated if it's already there
