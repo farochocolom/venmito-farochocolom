@@ -1,6 +1,7 @@
 ## Personal Info
 Name: Fernando J. Arocho Colom
 Email: f.arochocolom@gmail.com
+Tools used: PyCharm and JupiterNotebook (mostly for learning, didn't use them directly in the project) 
 
 ## Approach
 My approach was mostly about learning the ropes. I wasn't familiar with data engineering before starting with this project so I had to learn about the different tools available for managing files such as pandas, which is the one I chose to go with.
